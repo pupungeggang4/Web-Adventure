@@ -11,11 +11,20 @@ class SceneTitle {
         Render.strokeRectUI(game.ctx, UI.title.cursorArrow[game.cursor.title])
     }
 
-    static keyDown(game) {
-
+    static keyDown(game, key) {
+        if (key === 'ArrowDown' || key === 's') {
+            game.cursor.title = (game.cursor.title + 1) % 2
+        } else if (key === 'ArrowUp' || key === 'w') {
+            game.cursor.title = (game.cursor.title + 1) % 2
+        } else if (key === 'Enter') {
+            if (game.cursor.title === 0) {
+                game.scene = 'adventure'
+                game.state = ''
+            }
+        }
     }
 
-    static keyUp(game) {
+    static keyUp(game, key) {
 
     }
 }

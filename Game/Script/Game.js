@@ -5,7 +5,8 @@ class Game {
         this.menu = 'false'
 
         this.cursor = {
-            title: 0
+            title: 0,
+            menu: 0,
         }
 
         this.canvas = document.getElementById('screen')
@@ -26,6 +27,8 @@ class Game {
 
         if (this.scene === 'title') {
             SceneTitle.loop(this)
+        } else if (this.scene === 'adventure') {
+            SceneAdventure.loop(this)
         }
 
         this.gameLoop = requestAnimationFrame(() => this.loop())
@@ -35,7 +38,9 @@ class Game {
         let key = event.key
 
         if (this.scene === 'title') {
-            SceneTitle.keyDown(this)
+            SceneTitle.keyDown(this, key)
+        } else if (this.scene === 'adventure') {
+            SceneAdventure.keyDown(this, key)
         }
     }
 
@@ -43,7 +48,9 @@ class Game {
         let key = event.key
 
         if (this.scene === 'title') {
-            SceneTitle.keyUp(this)
+            SceneTitle.keyUp(this, key)
+        } else if (this.scene === 'adventure') {
+            SceneAdventure.keyUp(this, key)
         }
     }
 }
