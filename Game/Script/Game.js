@@ -1,13 +1,15 @@
-let game
-
 class Game {
     constructor() {
         this.scene = 'title'
         this.state = ''
         this.menu = 'false'
 
-        this.canvas = document.getElemenyById('screen')
-        this.ctx = this.cavnas.getContext('2d')
+        this.cursor = {
+            title: 0
+        }
+
+        this.canvas = document.getElementById('screen')
+        this.ctx = this.canvas.getContext('2d')
 
         window.addEventListener('keydown', (event) => this.keyDown(event), false)
         window.addEventListener('keyup', (event) => this.keyUp(event), false)
@@ -15,28 +17,33 @@ class Game {
         this.framePrevious = performance.now()
         this.delta = 16
         this.gameLoop = requestAnimationFrame(() => this.loop())
+    }
 
-        loop() {
-            this.framePrevious = this.frameCurrent
-            this.frameCurrent = performance.now()
-            this.delta = this.frameCurrent - this.framePrevious
-            this.gameLoop = requestAnimationFrame(() => this.loop())
+    loop() {
+        this.framePrevious = this.frameCurrent
+        this.frameCurrent = performance.now()
+        this.delta = this.frameCurrent - this.framePrevious
+
+        if (this.scene === 'title') {
+            SceneTitle.loop(this)
         }
 
-        keyDown(event) {
-            let key = event.key
+        this.gameLoop = requestAnimationFrame(() => this.loop())
+    }
 
-            if (this.scene === 'title') {
+    keyDown(event) {
+        let key = event.key
 
-            }
+        if (this.scene === 'title') {
+            SceneTitle.keyDown(this)
         }
+    }
 
-        keyUp(event) {
-            let key = event.key
+    keyUp(event) {
+        let key = event.key
 
-            if (this.scene === 'title') {
-
-            }
+        if (this.scene === 'title') {
+            SceneTitle.keyUp(this)
         }
     }
 }
