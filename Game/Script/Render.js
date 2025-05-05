@@ -11,6 +11,19 @@ class Render {
         ctx.fillStyle = 'black'
     }
 
+    static renderMenu(ctx) {
+        ctx.fillStyle = 'white'
+        this.fillRectUI(ctx, UI.menu.rect)
+        this.strokeRectUI(ctx, UI.menu.rect)
+        ctx.fillStyle = 'black'
+
+        this.fillTextUI(ctx, 'Paused', UI.menu.textPaused)
+        this.strokeRectUI(ctx, UI.menu.buttonResume)
+        this.fillTextUI(ctx, 'Resume [R]', UI.menu.textResume)
+        this.strokeRectUI(ctx, UI.menu.buttonExit)
+        this.fillTextUI(ctx, 'Exit [E]', UI.menu.textExit)
+    }
+
     static strokeRectUI(ctx, rect) {
         ctx.strokeRect(rect[0], rect[1], rect[2], rect[3])
     }
@@ -25,5 +38,9 @@ class Render {
 
     static fillTextUI(ctx, text, pos) {
         ctx.fillText(text, pos[0], pos[1])
+    }
+
+    static renderImageCam(ctx, img, rect, cam) {
+        ctx.drawImage(img, rect.position.x - cam.x - rect.size.x / 2, rect.position.y - cam.y - rect.size.y / 2)
     }
 }

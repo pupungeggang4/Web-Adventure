@@ -1,13 +1,16 @@
 class Game {
     constructor() {
+        imageLoad()
         this.scene = 'title'
         this.state = ''
-        this.menu = 'false'
+        this.menu = false
 
         this.cursor = {
             title: 0,
             menu: 0,
         }
+
+        this.field = new Field()
 
         this.canvas = document.getElementById('screen')
         this.ctx = this.canvas.getContext('2d')

@@ -1,5 +1,5 @@
-class Player {
+class Player extends Thing{
     constructor() {
-
+        super()
     }
 }
