@@ -3,7 +3,7 @@ class Field {
         this.background = 'cave'
         this.canvas = document.createElement('canvas')
         this.canvas.width = 1280
-        this.canvas.height = 800
+        this.canvas.height = 720
         this.ctx = this.canvas.getContext('2d')
     }
 

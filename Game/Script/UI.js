@@ -11,11 +11,11 @@ const UI = {
     },
 
     menu: {
-        rect: [320, 280, 640, 240],
-        textPaused: [328, 304],
-        buttonResume: [320, 360, 640, 80],
-        textResume: [328, 384],
-        buttonExit: [320, 440, 640, 80],
-        textExit: [328, 464],
+        rect: [320, 240, 640, 240],
+        textPaused: [328, 324],
+        buttonResume: [320, 320, 640, 80],
+        textResume: [328, 344],
+        buttonExit: [320, 400, 640, 80],
+        textExit: [328, 424],
     }
 }
